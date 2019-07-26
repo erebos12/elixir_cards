@@ -1,6 +1,12 @@
 defmodule Cards do
+  @moduledoc """
+    Provides methods for create and hanlding a deck of cards.
+  """
 
   # comprehension
+  @doc """
+    Returns a list of strings representing a deck of playing cards
+  """
   def create_deck do
     values = ["Ace", "Two", "Three", "Four", "Five"]
     suits = [ "Spades", "Clubs", "Hearts", "Diamonds"]
@@ -31,6 +37,17 @@ defmodule Cards do
     end
   end
 
+  @doc """
+  Devides a deck into a hand and remainder of the deck.
+  The `hand_size` argument indicates how many cards should be in the hand.
+
+  ## Examples
+
+        iex> deck = Cards.create_deck
+        iex> {hand, deck} = Cards.deal(deck, 1)
+        iex> hand
+        ["Ace of Spades"]
+  """
   def deal(deck, hand_size) do
     d = shuffle(deck)
     Enum.split(d, hand_size)
