@@ -35,4 +35,13 @@ defmodule Cards do
     d = shuffle(deck)
     Enum.split(d, hand_size)
   end
+
+  # use consinstent FIRST argument for functions
+  # when using pipe operator - here 'deck'
+  def create_hand(hand_size) do
+    create_deck()
+    |> shuffle
+    |> deal(hand_size)
+  end
+
 end
