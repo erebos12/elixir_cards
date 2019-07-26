@@ -6,6 +6,16 @@ defmodule Cards do
   # comprehension
   @doc """
   Returns a list of strings representing a deck of playing cards
+
+  ## Examples
+
+        iex> deck = Cards.create_deck
+        ["Ace of Spades", "Two of Spades", "Three of Spades", "Four of Spades",
+         "Five of Spades", "Ace of Clubs", "Two of Clubs", "Three of Clubs",
+         "Four of Clubs", "Five of Clubs", "Ace of Hearts", "Two of Hearts",
+         "Three of Hearts", "Four of Hearts", "Five of Hearts", "Ace of Diamonds",
+         "Two of Diamonds", "Three of Diamonds", "Four of Diamonds", "Five of Diamonds"]
+
   """
   def create_deck do
     values = ["Ace", "Two", "Three", "Four", "Five"]
@@ -15,6 +25,9 @@ defmodule Cards do
     end
   end
 
+  @doc """
+  Randomly mixing the order of cards in the given deck
+  """
   def shuffle(deck) do
     Enum.shuffle(deck)
   end
@@ -26,11 +39,6 @@ defmodule Cards do
   ## Examples
 
         iex> deck = Cards.create_deck
-        ["Ace of Spades", "Two of Spades", "Three of Spades", "Four of Spades",
-         "Five of Spades", "Ace of Clubs", "Two of Clubs", "Three of Clubs",
-         "Four of Clubs", "Five of Clubs", "Ace of Hearts", "Two of Hearts",
-         "Three of Hearts", "Four of Hearts", "Five of Hearts", "Ace of Diamonds",
-         "Two of Diamonds", "Three of Diamonds", "Four of Diamonds", "Five of Diamonds"]
         iex> Cards.contains?(deck, "Ace of Spades")
         true
 
